@@ -55,6 +55,12 @@
             "did you know that {Fact}",
             "the details are {Fact}",
             "details {Fact}"
+          ],
+          "slots": [
+            {
+              "name": "Fact",
+              "type": "AMAZON.SearchQuery"
+            }
           ]
         },
         {
@@ -69,6 +75,12 @@
             "score {Score}",
             "I would score that {Score}",
             "I would score {Score}"
+          ],
+          "slots": [
+            {
+              "name": "Score",
+              "type": "AMAZON.SearchQuery"
+            }
           ]
         }
       ]

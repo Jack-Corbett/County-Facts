@@ -1,15 +1,16 @@
 {
   "deploy_settings": {
     "default": {
-      "skill_id": "amzn1.ask.skill.0be77b5c-d641-4f8b-bba8-ae3ba4e72642",
+      "skill_id": "amzn1.ask.skill.b5c40c93-398c-4f3e-a83e-1dbb6cd542b3",
+      "was_cloned": false,
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "e7299047f85662465a7417f1e8e4038b"
+          "eTag": "2d2d5ef5222b3dca92022a7cd6e98bc7"
         },
         "interactionModel": {
           "en-GB": {
-            "eTag": "4d4d00f5d5b03caf6d6dbc65fb062b7d"
+            "eTag": "32df3d7ea31d0a4410c6d5972105acb3"
           }
         },
         "lambda": [
@@ -17,12 +18,12 @@
             "alexaUsage": [
               "custom/default"
             ],
-            "arn": "arn:aws:lambda:us-east-1:499295336600:function:ask-custom-Local-Facts-default",
+            "arn": "arn:aws:lambda:us-east-1:499295336600:function:ask-custom-County-Facts-default",
             "awsRegion": "us-east-1",
             "codeUri": "lambda/custom",
-            "functionName": "ask-custom-Local-Facts-default",
+            "functionName": "ask-custom-County-Facts-default",
             "handler": "index.handler",
-            "revisionId": "cbe7d2be-40d0-4c9f-b771-daeb65491d5c",
+            "revisionId": "60bb06e8-f6e3-40fc-90ff-42c98d91f52c",
             "runtime": "nodejs10.x"
           }
         ]
