@@ -1,0 +1,41 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-GB": {
+          "summary": "Learn fun facts about your county.",
+          "examplePhrases": [
+            "Alexa open county facts",
+            "Alexa ask county facts for a fact",
+            "Alexa tell county facts to tell me a fact"
+          ],
+          "keywords": [
+            "county",
+            "facts",
+            "information"
+          ],
+          "name": "County Facts",
+          "description": "Ask for facts about your local county! Make sure to enable location and name permissions so I know which facts to share and who I'm talking to!"
+        }
+      },
+      "category": "KNOWLEDGE_AND_TRIVIA"
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/custom",
+          "uri": "ask-custom-County-Facts-default"
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [
+      {
+        "name": "alexa::devices:all:address:full:read"
+      },
+      {
+        "name": "alexa::profile:name:read"
+      }
+    ]
+  }
+}
