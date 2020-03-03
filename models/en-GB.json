@@ -79,7 +79,7 @@
           "slots": [
             {
               "name": "Score",
-              "type": "AMAZON.SearchQuery"
+              "type": "AMAZON.NUMBER"
             }
           ]
         }
