@@ -16,7 +16,7 @@ const LaunchRequestHandler = {
 };
 
 // Tell the user a local fact based on their address
-const GetNewFactHandler = {
+const GetFactHandler = {
   canHandle(handlerInput) {
     const { request } = handlerInput.requestEnvelope
     return request.type === 'IntentRequest' && request.intent.name === 'GetFactIntent';
@@ -38,6 +38,8 @@ const GetNewFactHandler = {
       // Get the user's name
       const client = serviceClientFactory.getUpsServiceClient();
       const name = await client.getProfileName();
+      // Split the full name to get the first name
+      const nameSplit = name.split(" ");
       console.log(name);
 
       // Get the user's address
@@ -55,14 +57,17 @@ const GetNewFactHandler = {
       if (county === 'Greater Manchester') county = 'Manchester';
       if (county === 'North Yorkshire' || county === 'South Yorkshire' || county === 'West Yorkshire') county = 'Yorkshire';
 
-      var response = 'Hi ' + name + '! Did you know: ';
+      var response = '';
       if (county && FACTS.hasOwnProperty(county)) {
+        // Set introduction based on the county and name data
+        if (nameSplit[0]) {
+          response += 'Hi ' + nameSplit[0] + '! Here\'s and interesting fact about ' + county + '. Did you know: '
+        } else {
+          response += 'Hi there! Here\'s and interesting fact about ' + county + '. Did you know: ';
+        }
         // Get a random fact based on the user's county
-        response += FACTS[county][Math.floor(Math.random()*5)] + '. ' + message.STOP;
-        var close = ' ';
-        for (var i = 0; i < 20; i++) close += message.SPACE;
-        close += message.CLOSE;
-        response += close;
+        response += FACTS[county][Math.floor(Math.random()*5)] + ' ' + message.STOP;
+        response += ' ' + message.SPACE + message.CLOSE;
       } else {
         // Otherwise advise the user to check their device location in the app
         response += messages.FACT_ERROR;
@@ -75,6 +80,7 @@ const GetNewFactHandler = {
         .getResponse();
     } catch (error) {
       if (error.name !== 'ServiceError') {
+        console.log(error);
         return responseBuilder
           .speak(messages.ERROR)
           .reprompt(messages.ERROR)
@@ -98,7 +104,6 @@ const TellHandler = {
     return handlerInput.responseBuilder
       .speak(response)
       .withSimpleCard(skillName, response)
-      .reprompt(message.TELL_REPROMPT)
       .getResponse();
   }
 }
@@ -116,6 +121,7 @@ const RateHandler = {
     return handlerInput.responseBuilder
       .speak(response)
       .withSimpleCard(skillName, response)
+      .reprompt(message.RATING_REPROMPT)
       .getResponse();
   }
 }
@@ -210,7 +216,7 @@ const ErrorHandler = {
 const FACTS = {
   'Hampshire': [
     'The New Forest is one of Britains newest and smallest national parks with an area of 218 square miles.',
-    'Hampshire is the birthplace of Jane Austen and Charles Dickens.',
+    'It\'s the birthplace of Jane Austen and Charles Dickens.',
     'Southampton is the home of the Spitfire Aircraft which was designed by R.J. Mitchell.',
     'Southampton was the first town in Britain to sample fish fingers in 1955.',
     'The first Sherlock Holmes story was written in Southsea by Sir Arthur Conan-Doyle.'
@@ -479,16 +485,16 @@ const FACTS = {
 const skillName = 'County Facts';
 
 const messages = {
-  WELCOME: 'Welcome to County Facts!',
+  WELCOME: 'Hello and welcome to County Facts!',
   HELP: 'You can say tell me a fact, or you can say exit.',
   HELP_REPROMPT: 'Ask me to tell you a fact.',
-  FALLBACK: 'County Facts can\'t help you with that. It can help you discover facts about your local area if you say: tell me a fact.',
-  FALLBACK_REPROMPT: 'To learn a fact about your local area say: tell me a fact.',
+  FALLBACK: 'I\'m sorry I didn\'t catch that. Could you repeat your request?',
+  FALLBACK_REPROMPT: 'Could you repeat your last request?',
   NOTIFY_MISSING_PERMISSIONS: 'Please enable address and name permissions in the Alexa app. Then try again.',
   DATA_FAILURE: 'There was a problem fetching your address or name, please try again later.',
   NAME_FAILURE: 'There was a problem fetching your name, please try again later.',
   ERROR: 'Sorry, an error occurred when fetching you a fact.',
-  FACT_ERROR: 'I couldn\'t find any facts for your area. Make sure your device location is set in the Alexa app.',
+  FACT_ERROR: 'I couldn\'t find any facts for your area. Make sure your device location, including the region, is set in the Alexa app.',
   STOP: 'Thank you for using County Facts! Goodbye.',
 }
 

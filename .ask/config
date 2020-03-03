@@ -6,11 +6,11 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "2d2d5ef5222b3dca92022a7cd6e98bc7"
+          "eTag": "8758c66f9c0fd4bfd0ce00f6ba870c90"
         },
         "interactionModel": {
           "en-GB": {
-            "eTag": "32df3d7ea31d0a4410c6d5972105acb3"
+            "eTag": "1df4b2a4b37018519c34e6c0f76006bd"
           }
         },
         "lambda": [
@@ -23,7 +23,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-County-Facts-default",
             "handler": "index.handler",
-            "revisionId": "60bb06e8-f6e3-40fc-90ff-42c98d91f52c",
+            "revisionId": "f1a9ded8-e5a7-42d6-89a3-fde01f4719ce",
             "runtime": "nodejs10.x"
           }
         ]
