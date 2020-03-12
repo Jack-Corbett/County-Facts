@@ -485,7 +485,7 @@ const FACTS = {
 const skillName = 'County Facts';
 
 const messages = {
-  WELCOME: 'Hello and welcome to County Facts!',
+  WELCOME: 'Hello and welcome to County Facts! Ask me for a fact',
   HELP: 'You can say tell me a fact, or you can say exit.',
   HELP_REPROMPT: 'Ask me to tell you a fact.',
   FALLBACK: 'I\'m sorry I didn\'t catch that. Could you repeat your last request?',
@@ -493,9 +493,9 @@ const messages = {
   NOTIFY_MISSING_PERMISSIONS: 'Please enable address and name permissions in the Alexa app. Then try again.',
   DATA_FAILURE: 'There was a problem fetching your address or name, please try again later.',
   NAME_FAILURE: 'There was a problem fetching your name, please try again later.',
-  ERROR: 'Sorry, an error occurred when fetching you a fact.',
+  ERROR: 'Sorry, an error occurred.',
   FACT_ERROR: 'I couldn\'t find any facts for your area. Make sure your device location, including the region, is set in the Alexa app.',
-  STOP: 'Thank you for using County Facts! Goodbye.',
+  STOP: 'Goodbye.',
 }
 
 const skillBuilder = Alexa.SkillBuilders.custom();
