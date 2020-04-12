@@ -10,7 +10,7 @@
         },
         "interactionModel": {
           "en-GB": {
-            "eTag": "86eb9d6591c766e5d719fbbbb83ace25"
+            "eTag": "a72ad7b4ebbe6e305a0aa1b71ca16a35"
           }
         },
         "lambda": [
@@ -23,7 +23,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-County-Facts-default",
             "handler": "index.handler",
-            "revisionId": "9de7db78-64f3-47b7-b08d-b5ead7fd33b4",
+            "revisionId": "12a40658-d580-4310-89c8-759fad9c65ec",
             "runtime": "nodejs10.x"
           }
         ]
