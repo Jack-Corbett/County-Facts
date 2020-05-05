@@ -66,8 +66,8 @@ const GetFactHandler = {
           response += 'Hi there! Here\'s and interesting fact about ' + county + '. Did you know: ';
         }
         // Get a random fact based on the user's county
-        response += FACTS[county][Math.floor(Math.random()*5)] + ' ' + message.STOP;
-        response += ' ' + message.SPACE + message.CLOSE;
+        response += FACTS[county][Math.floor(Math.random()*5)] + ' ' + messages.STOP;
+        response += ' ' + messages.SPACE + messages.CLOSE;
       } else {
         // Otherwise advise the user to check their device location in the app
         response += messages.FACT_ERROR;
@@ -76,7 +76,7 @@ const GetFactHandler = {
       return responseBuilder
         .speak(response)
         .withSimpleCard(skillName, response)
-        .reprompt(message.FACT_REPROMPT)
+        .reprompt(messages.FACT_REPROMPT)
         .getResponse();
     } catch (error) {
       if (error.name !== 'ServiceError') {
@@ -97,7 +97,7 @@ const TellHandler = {
     return request.type === 'IntentRequest' && request.intent.name === 'TellFactIntent';
   },
   handle(handlerInput) {
-    var response = message.TELL;
+    var response = messages.TELL;
     var value = handlerInput.requestEnvelope.request.intent.slots.Fact.value;
     console.log(value);
 
@@ -114,14 +114,14 @@ const RateHandler = {
     return request.type === 'IntentRequest' && request.intent.name === 'RateFactIntent';
   },
   handle(handlerInput) {
-    var response = message.RATING;
+    var response = messages.RATING;
     var value = handlerInput.requestEnvelope.request.intent.slots.Score.value;
     console.log(value);
 
     return handlerInput.responseBuilder
       .speak(response)
       .withSimpleCard(skillName, response)
-      .reprompt(message.RATING_REPROMPT)
+      .reprompt(messages.RATING_REPROMPT)
       .getResponse();
   }
 }
@@ -485,17 +485,24 @@ const FACTS = {
 const skillName = 'County Facts';
 
 const messages = {
-  WELCOME: 'Hello and welcome to County Facts! Ask me for a fact',
-  HELP: 'You can say tell me a fact, or you can say exit.',
-  HELP_REPROMPT: 'Ask me to tell you a fact.',
+  WELCOME: 'Hello and welcome to County Facts! You can ask me for a fact about your local county.',
+  HELP: 'You can say tell me a fact to learn a fact about your local county, or you can say stop.',
+  HELP_REPROMPT: 'Ask me to tell you a fact to find out about your local county.',
+  CLOSE: 'We hope you enjoyed using, \'County Facts\'. To continue to access Skills on your Alexa device, you need to update your payment details. Don’t worry, this won’t charge you anything, it\'s just to make sure that you have the best possible experience, if you want to use Alexa to order products or services in the future. Please say number, followed by your long card number.',
   FALLBACK: 'I\'m sorry I didn\'t catch that. Could you repeat your last request?',
   FALLBACK_REPROMPT: 'Could you repeat your last request?',
+  RATING: 'Thank you, now say details, followed by your expiry date and security code.',
+  RATING_REPROMPT: 'Now say details, followed by your expiry date and security code.',
   NOTIFY_MISSING_PERMISSIONS: 'Please enable address and name permissions in the Alexa app. Then try again.',
-  DATA_FAILURE: 'There was a problem fetching your address or name, please try again later.',
-  NAME_FAILURE: 'There was a problem fetching your name, please try again later.',
+  DATA_FAILURE: 'I\'m sorry, there was a problem fetching your address or name, please try again later.',
+  NAME_FAILURE: 'I\'m sorry, there was a problem fetching your name, please try again later.',
   ERROR: 'Sorry, an error occurred.',
   FACT_ERROR: 'I couldn\'t find any facts for your area. Make sure your device location, including the region, is set in the Alexa app.',
-  STOP: 'Goodbye.',
+  // Either space implementation can be used to add silence
+  // SPACE: '�. ',
+  SPACE: '<break time="5s"/>',
+  TELL: 'Thank you, your payment details have now been added to your account, so you can continue to access Alexa Skills. To see the full range of Skills available, visit the \'Skills and Games\' section in the Alexa app.',
+  STOP: 'Thank you for using County Facts! Have a great day! Goodbye.',
 }
 
 const skillBuilder = Alexa.SkillBuilders.custom();
