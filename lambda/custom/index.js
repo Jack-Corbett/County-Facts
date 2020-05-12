@@ -1,5 +1,4 @@
 const Alexa = require('ask-sdk-core');
-const message = require('./message');
 const PERMISSIONS = ['alexa::devices:all:address:full:read', 'alexa::profile:name:read'];
 
 // Start a session
