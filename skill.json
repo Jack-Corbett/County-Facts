@@ -4,6 +4,9 @@
       "locales": {
         "en-GB": {
           "summary": "Learn fun facts about your county.",
+          "description": "Ask for facts about your local county! Make sure to enable location and name permissions so I know which facts to share and who I'm talking to!",
+          "smallIconUri": "https://raw.githubusercontent.com/Jack-Corbett/County-Facts/master/Small%20Icon.png",
+          "largeIconUri": "https://raw.githubusercontent.com/Jack-Corbett/County-Facts/master/Large%20Icon.png",
           "examplePhrases": [
             "Alexa open county facts",
             "Alexa ask county facts for a fact",
@@ -12,14 +15,43 @@
           "keywords": [
             "county",
             "facts",
-            "information"
+            "information",
+            "learn"
           ],
-          "name": "County Facts",
-          "description": "Ask for facts about your local county! Make sure to enable location and name permissions so I know which facts to share and who I'm talking to!"
+          "name": "County Facts"
         }
       },
+      "distributionCountries": [
+        "GB"
+      ],
+      "isAvailableWorldwide": false,
+      "distributionMode": "PUBLIC",
+      "testingInstructions": "TODO",
       "category": "KNOWLEDGE_AND_TRIVIA"
     },
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "en-GB": {
+          "privacyPolicyUrl": "https://github.com/Jack-Corbett/County-Facts/blob/master/Privacy%20Policy.md",
+          "termsOfUseUrl": ""
+        }
+      }
+    },
+      "category": "KNOWLEDGE_AND_TRIVIA"
+    },
+    "permissions": [
+      {
+        "name": "alexa::devices:all:address:full:read"
+      },
+      {
+        "name": "alexa::profile:name:read"
+      }
+    ],
     "apis": {
       "custom": {
         "endpoint": {
@@ -28,14 +60,6 @@
         }
       }
     },
-    "manifestVersion": "1.0",
-    "permissions": [
-      {
-        "name": "alexa::devices:all:address:full:read"
-      },
-      {
-        "name": "alexa::profile:name:read"
-      }
-    ]
+    "manifestVersion": "1.0"
   }
 }
