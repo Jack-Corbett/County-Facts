@@ -1,0 +1,40 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:499295336600:function:ask-custom-County-Facts-default"
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [
+      {
+        "name": "alexa::devices:all:address:full:read"
+      },
+      {
+        "name": "alexa::profile:name:read"
+      }
+    ],
+    "publishingInformation": {
+      "category": "KNOWLEDGE_AND_TRIVIA",
+      "locales": {
+        "en-GB": {
+          "description": "Ask for facts about your local county! Make sure to enable location and name permissions so I know which facts to share and who I'm talking to!",
+          "examplePhrases": [
+            "Alexa open county facts",
+            "Alexa ask county facts for a fact",
+            "Alexa tell county facts to tell me a fact"
+          ],
+          "keywords": [
+            "county",
+            "facts",
+            "information"
+          ],
+          "name": "County Facts",
+          "summary": "Learn fun facts about your county."
+        }
+      }
+    }
+  }
+}

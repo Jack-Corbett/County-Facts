@@ -1,0 +1,94 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "county facts",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "GetFactIntent",
+          "slots": [],
+          "samples": [
+            "a fact",
+            "a county fact",
+            "tell me a fact",
+            "tell me a county fact",
+            "tell me a local fact",
+            "give me a fact",
+            "give me a county fact",
+            "give me a local fact",
+            "tell me trivia",
+            "tell me some local trivia",
+            "tell me some county trivia",
+            "give me trivia",
+            "give me some local trivia",
+            "give me some county trivia",
+            "give me some information",
+            "give me some local information",
+            "give me some county information",
+            "tell me some local information",
+            "tell me some county information",
+            "tell me something",
+            "give me something"
+          ]
+        },
+        {
+          "name": "TellFactIntent",
+          "slots": [
+            {
+              "name": "Fact",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "my fact is {Fact}",
+            "let me tell you a fact {Fact}",
+            "did you know {Fact}",
+            "did you know that {Fact}",
+            "the details are {Fact}",
+            "details {Fact}"
+          ]
+        },
+        {
+          "name": "RateFactIntent",
+          "slots": [
+            {
+              "name": "Score",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "I would rate that fact {Score}",
+            "I would rate that {Score}",
+            "I rate that {Score}",
+            "rate {Score}",
+            "rating {Score}",
+            "number {Score}",
+            "score {Score}",
+            "I would score that {Score}",
+            "I would score {Score}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ]
+    }
+  },
+  "version": "19"
+}
