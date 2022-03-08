@@ -4,11 +4,11 @@
     "default": {
       "skillId": "amzn1.ask.skill.b5c40c93-398c-4f3e-a83e-1dbb6cd542b3",
       "skillMetadata": {
-        "lastDeployHash": "5T8qwIqJjH6VIXKDTvf/rROjGFs="
+        "lastDeployHash": "gf0QoOT4j2bv1Vd3TcVjiBAovUE="
       },
       "code": {
         "default": {
-          "lastDeployHash": "bbGJCbXn4OCZsQKqI9HRr2v46LE="
+          "lastDeployHash": "AE/3bNRzWzuBzdyRsbSw8lDCIF8="
         }
       },
       "skillInfrastructure": {
@@ -17,8 +17,8 @@
             "default": {
               "lambda": {
                 "arn": "arn:aws:lambda:us-east-1:499295336600:function:ask-custom-County-Facts-default",
-                "lastModified": "2021-06-13T20:20:36.842+0000",
-                "revisionId": "3d1512c9-3b93-4ec4-a7e1-24b10978b564"
+                "lastModified": "2022-03-08T20:40:42.000+0000",
+                "revisionId": "15962fc1-4bac-4843-9a4e-00166593fe8f"
               },
               "iamRole": "arn:aws:iam::499295336600:role/ask-lambda-County-Facts"
             }
